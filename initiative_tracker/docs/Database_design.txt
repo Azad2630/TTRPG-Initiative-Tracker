@@ -1,0 +1,52 @@
+﻿SIMPEL DATABASE TIL INITIATIVE TRACKER
+
+Databasen skal gemme kampe og deltagere. Dette er kun en beskrivelse.
+Databasen er ikke oprettet endnu.
+
+1. KAMPE (battles)
+
+Denne tabel gemmer oplysninger om en kamp.
+
+Felt           Hvad betyder det?
+id             Kampens nummer.
+name           Kampens navn.
+round_number   Hvilken runde kampen er i.
+
+Eksempel:
+id  name             round_number
+1   Kamp ved skoven   1
+
+2. DELTAGERE (participants)
+
+Denne tabel gemmer både spillere og fjender.
+
+Felt           Hvad betyder det?
+id             Deltagerens nummer.
+battle_id      Nummeret på den kamp, deltageren er med i.
+name           Deltagerens navn.
+type           Spiller eller fjende.
+initiative     Tallet, der bestemmer rækkefølgen.
+
+Eksempel:
+id  battle_id  name     type      initiative
+1   1          Elver    Spiller   18
+2   1          Goblin   Fjende    14
+3   1          Kriger   Spiller   10
+
+SÅDAN HÆNGER DET SAMMEN
+
+Alle tre deltagere har battle_id 1. Derfor hører de til kampen
+med id 1, som hedder Kamp ved skoven.
+
+En kamp kan have flere deltagere. Hver deltager hører til én kamp.
+
+SÅDAN SKAL APPEN BRUGE DATA
+
+- Oprette en kamp.
+- Tilføje og fjerne deltagere.
+- Vise deltagerne fra højeste til laveste initiativ.
+- Opdatere rundenummeret, når en ny runde starter.
+
+I eksemplet er rækkefølgen Elver, Goblin og Kriger.
+Appen holder selv styr på, hvem der har tur, mens kampen er åben.
+Den aktive tur gemmes ikke i denne simple databaseversion.
